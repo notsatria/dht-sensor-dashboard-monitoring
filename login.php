@@ -2,6 +2,8 @@
 
 require 'php/koneksi.php';
 
+session_start();
+
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -10,7 +12,7 @@ if (isset($_POST['login'])) {
     $query = mysqli_query($conn, $sql);
     $data = mysqli_fetch_array($query);
 
-    if (mysqli_num_rows($query) == 1) {
+    if (mysqli_num_rows($query) > 0) {
         if ($password == $data['password']) {
             $_SESSION['username'] = $username;
             $_SESSION['status'] = "login";

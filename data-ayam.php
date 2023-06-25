@@ -1,3 +1,15 @@
+<?php
+// Inisialisasi session
+session_start();
+
+// Periksa apakah pengguna telah login
+if (!isset($_SESSION['username'])) {
+    // Jika pengguna belum login, redirect ke halaman login
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +48,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0">
-                        <a href="index.html" class="site_title"><span>Dashboard</span></a>
+                        <a href="home.php" class="site_title"><span>Dashboard</span></a>
                     </div>
 
                     <div class="clearfix"></div>

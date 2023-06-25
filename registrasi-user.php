@@ -1,3 +1,15 @@
+<?php
+// Inisialisasi session
+session_start();
+
+// Periksa apakah pengguna telah login
+if (!isset($_SESSION['username'])) {
+  // Jika pengguna belum login, redirect ke halaman login
+  header("Location: login.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
