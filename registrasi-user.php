@@ -1,4 +1,6 @@
 <?php
+require 'php/koneksi.php';
+
 // Inisialisasi session
 session_start();
 
@@ -8,6 +10,69 @@ if (!isset($_SESSION['username'])) {
   header("Location: login.php");
   exit();
 }
+
+function tambah_user($data)
+{
+  global $conn;
+
+  $nama_lengkap = htmlspecialchars($data['nama_lengkap']);
+  $username = strtolower(stripslashes($data['username']));
+  $password = mysqli_real_escape_string($conn, $data['password']);
+  $password2 = mysqli_real_escape_string($conn, $data['password2']);
+  $role = $data['role'];
+
+  // Cek username sudah ada atau belum
+  $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
+
+  if (mysqli_fetch_assoc($result)) {
+    echo "<script>
+            alert('Username sudah terdaftar!');
+          </script>";
+    return false;
+  }
+
+  // Cek konfirmasi password
+
+  if ($password !== $password2) {
+    echo "<script>
+            alert('Konfirmasi password tidak sesuai!');
+          </script>";
+    return false;
+  }
+
+  // Enkripsi password
+  $password = password_hash($password, PASSWORD_DEFAULT);
+
+  // Tambahkan user baru ke database
+  mysqli_query($conn, "INSERT INTO users VALUES('', '$nama_lengkap' ,'$username', '$password', '$role', NOW())");
+
+  return mysqli_affected_rows($conn);
+}
+
+if (isset($_POST['tambah'])) {
+
+  if (tambah_user($_POST) > 0) {
+    echo "<script>
+            alert('Data berhasil ditambahkan!');
+          </script>";
+  } else {
+    echo mysqli_error($conn);
+  }
+}
+
+// Buat function untuk periksa siapa yang login
+function checkAccess($role)
+{
+  if (in_array($_SESSION['role'], $role)) {
+    return true;
+  } else {
+    false;
+  }
+}
+
+$username = strtoupper($_SESSION['username']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +162,7 @@ if (!isset($_SESSION['username'])) {
 
             <div class="profile_info">
               <span>Selamat Datang,</span>
-              <h2></h2>
+              <h2><?php echo $username ?></h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -122,9 +187,14 @@ if (!isset($_SESSION['username'])) {
                 <li>
                   <a href="kandang-ayam.php"><i class="fa fa-desktop"></i> Suhu Kandang Ayam </a>
                 </li>
-                <li>
+                <?php
+                // Hanya bisa diakses oleh admin
+                if (checkAccess(['admin'])) {
+                  echo '  <li>
                   <a href="registrasi-user.php"><i class="fa fa-user"></i> Tambah User </a>
-                </li>
+                </li>';
+                }
+                ?>
               </ul>
             </div>
             <div class="menu_section"></div>
@@ -159,7 +229,7 @@ if (!isset($_SESSION['username'])) {
         <div class="m-5" style="color: transparent;">.</div>
         <div class="form-container">
           <h2>Tambah User Baru</h2>
-          <form action="proses_tambah_user.php" method="POST">
+          <form action="" method="POST">
             <div class="form-group">
               <label for="nama_lengkap">Nama Lengkap:</label>
               <input type="text" id="nama_lengkap" name="nama_lengkap" required>
@@ -173,6 +243,10 @@ if (!isset($_SESSION['username'])) {
               <input type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
+              <label for="password2">Konfirmasi Password:</label>
+              <input type="password" id="password2" name="password2" required>
+            </div>
+            <div class="form-group">
               <label for="role">Role:</label>
               <select id="role" name="role">
                 <option value="karyawan">Karyawan</option>
@@ -180,10 +254,11 @@ if (!isset($_SESSION['username'])) {
               </select>
             </div>
             <div class="form-group">
-              <input type="submit" value="Tambah User" class="btn-submit">
+              <input type="submit" value="Tambah User" class="btn-submit" name="tambah">
             </div>
           </form>
         </div>
+        <div class="m-5" style="color: transparent;">.</div>
 
       </div>
       <!-- /page content -->

@@ -8,6 +8,19 @@ if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
+// Buat function untuk periksa siapa yang login
+function checkAccess($role)
+{
+    if (in_array($_SESSION['role'], $role)) {
+        return true;
+    } else {
+        false;
+    }
+}
+
+$username = strtoupper($_SESSION['username']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -56,8 +69,8 @@ if (!isset($_SESSION['username'])) {
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>John Doe</h2>
+                            <span>Selamat Datang,</span>
+                            <h2><?php echo $username ?></h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -82,9 +95,14 @@ if (!isset($_SESSION['username'])) {
                                 <li>
                                     <a href="kandang-ayam.php"><i class="fa fa-desktop"></i> Suhu Kandang Ayam </a>
                                 </li>
-                                <li>
-                                    <a href="registrasi-user.php"><i class="fa fa-user"></i> Tambah User </a>
-                                </li>
+                                <?php
+                                // Hanya bisa diakses oleh admin
+                                if (checkAccess(['admin'])) {
+                                    echo '  <li>
+                  <a href="registrasi-user.php"><i class="fa fa-user"></i> Tambah User </a>
+                </li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                         <div class="menu_section"></div>

@@ -2,9 +2,9 @@
 include "koneksi.php";
 
 // Baca data ID tertinggi dari tabel data_kandang
-$sql_id = mysqli_query($conn, "SELECT MAX(ID) AS MAX_ID FROM data_kandang");
-// tangkap nilainya ke dalam variabel
-$data_id = mysqli_fetch_array($sql_id);
+    $sql_id = mysqli_query($conn, "SELECT MAX(ID) AS MAX_ID FROM data_kandang");
+    // tangkap nilainya ke dalam variabel
+    $data_id = mysqli_fetch_array($sql_id);
 
 $id_akhir = $data_id['MAX_ID'];
 $id_awal = $id_akhir - 4;

@@ -10,12 +10,15 @@ if (isset($_POST['login'])) {
 
     $sql = "SELECT * FROM users WHERE username = '$username'";
     $query = mysqli_query($conn, $sql);
-    $data = mysqli_fetch_array($query);
 
     if (mysqli_num_rows($query) > 0) {
-        if ($password == $data['password']) {
+        $data = mysqli_fetch_array($query);
+
+        // Cek password
+        if (password_verify($password, $data['password'])) {
+            // Buat session
             $_SESSION['username'] = $username;
-            $_SESSION['status'] = "login";
+            $_SESSION['role'] = $data['role'];
             header("location: home.php");
         } else {
             echo "<script>alert('Username atau Password salah!');</script>";
