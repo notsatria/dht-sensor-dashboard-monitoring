@@ -20,6 +20,7 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $data['role'];
             header("location: home.php");
+            exit();
         } else {
             echo "<script>alert('Username atau Password salah!');</script>";
         }
@@ -27,7 +28,6 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Username tidak ditemukan!');</script>";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +42,21 @@ if (isset($_POST['login'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
+        h1 {
+            font-size: 42px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 20px;
+        }
+
         body {
             background-color: #f8f9fa;
+            background-image: url('https://images.unsplash.com/photo-1630090374791-c9eb7bab3935?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .container {
@@ -88,14 +101,17 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-
-    <div class="container">
+    <div class="m-5">
+        <h1 class=" text-center text-white text-uppercase">Website Monitoring</h1>
+        <h1 class="text-center text-white text-uppercase">Peternakan Ayam ABC</h1>
+    </div>
+    <div class="container my-auto">
         <div class="card">
             <div class="card-header">
                 <h2>Halaman Login</h2>
             </div>
             <div class="card-body">
-                <form method="POST" actions="">
+                <form method="POST" action="">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan username" required>

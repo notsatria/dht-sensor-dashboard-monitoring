@@ -61,7 +61,7 @@ $username = strtoupper($_SESSION['username']);
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0">
-                        <a href="home.php" class="site_title"><span>Dashboard</span></a>
+                        <a href="home.php" class="site_title"><span>Sistem Monitoring</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -103,6 +103,14 @@ $username = strtoupper($_SESSION['username']);
                 </li>';
                                 }
                                 ?>
+                                <?php
+                                // Hanya bisa diakses oleh admin
+                                if (checkAccess(['admin'])) {
+                                    echo '  <li>
+                  <a href="daftar-user.php"><i class="fa fa-user"></i> Daftar    User </a>
+                </li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                         <div class="menu_section"></div>
@@ -135,30 +143,25 @@ $username = strtoupper($_SESSION['username']);
             <!-- page content -->
             <div class="right_col" role="main">
 
-                <div class="row" id="grafikKandangAyam">
+                <h1>Masih kosong (Nunggu kelompok lain)</h1>
 
 
 
-                </div>
-                <br />
             </div>
-            <!-- /page content -->
-
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a></div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
+            <br />
         </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a></div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
     </div>
 
     <!-- Memanggil data grafik kandang ayam -->
-    <script type="text/javascript">
-        var refreshId = setInterval(function() {
-            $("#grafikKandangAyam").load("php/data-gambar.php");
-        }, 1000);
-    </script>
 
 
 

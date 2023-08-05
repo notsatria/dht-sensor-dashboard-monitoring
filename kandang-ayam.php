@@ -64,7 +64,7 @@ $username = strtoupper($_SESSION['username']);
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0">
-                        <a href="home.php" class="site_title"><span>Dashboard</span></a>
+                        <a href="home.php" class="site_title"><span>Sistem Monitoring</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -103,6 +103,14 @@ $username = strtoupper($_SESSION['username']);
                                 if (checkAccess(['admin'])) {
                                     echo '  <li>
                   <a href="registrasi-user.php"><i class="fa fa-user"></i> Tambah User </a>
+                </li>';
+                                }
+                                ?>
+                                <?php
+                                // Hanya bisa diakses oleh admin
+                                if (checkAccess(['admin'])) {
+                                    echo '  <li>
+                  <a href="daftar-user.php"><i class="fa fa-user"></i> Daftar    User </a>
                 </li>';
                                 }
                                 ?>

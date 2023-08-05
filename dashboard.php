@@ -63,7 +63,7 @@ $username = strtoupper($_SESSION['username']);
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0">
-            <a href="home.php" class="site_title"><span>Dashboard</span></a>
+            <a href="home.php" class="site_title"><span>Sistem Monitoring</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -72,7 +72,7 @@ $username = strtoupper($_SESSION['username']);
           <div class="profile clearfix">
             <div class="profile_info">
               <span>Selamat Datang,</span>
-              <h2><?php $username ?></h2>
+              <h2><?php echo $username ?></h2>
             </div>
           </div>
           <!-- /menu profile quick info -->
@@ -105,6 +105,14 @@ $username = strtoupper($_SESSION['username']);
                 </li>';
                 }
                 ?>
+                 <?php
+                                    // Hanya bisa diakses oleh admin
+                                    if (checkAccess(['admin'])) {
+                                        echo '  <li>
+                  <a href="daftar-user.php"><i class="fa fa-user"></i> Daftar    User </a>
+                </li>';
+                                    }
+                                    ?>
               </ul>
             </div>
             <div class="menu_section"></div>

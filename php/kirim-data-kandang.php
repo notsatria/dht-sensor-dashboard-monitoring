@@ -35,6 +35,7 @@ if (mysqli_num_rows($result) > 0) {
         $objData->fan_3 = $row["FAN_3"];
         $objData->cooler = $row["COOLER"];
         $objData->heater = $row["HEATER"];
+        $objData->otomatis = $row["OTOMATIS"];
     }
 } else {
     echo "0 results";

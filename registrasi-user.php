@@ -43,6 +43,9 @@ function tambah_user($data)
   // Enkripsi password
   $password = password_hash($password, PASSWORD_DEFAULT);
 
+  // Reset auto increment selalu dimulai dari 1
+  mysqli_query($conn, "ALTER TABLE users AUTO_INCREMENT = 1");
+
   // Tambahkan user baru ke database
   mysqli_query($conn, "INSERT INTO users VALUES('', '$nama_lengkap' ,'$username', '$password', '$role', NOW())");
 
@@ -153,7 +156,7 @@ $username = strtoupper($_SESSION['username']);
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0">
-            <a href="index.html" class="site_title"><span>Dashboard</span></a>
+            <a href="index.html" class="site_title"><span>Sistem Monitoring</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -195,6 +198,14 @@ $username = strtoupper($_SESSION['username']);
                 </li>';
                 }
                 ?>
+                 <?php
+                                    // Hanya bisa diakses oleh admin
+                                    if (checkAccess(['admin'])) {
+                                        echo '  <li>
+                  <a href="daftar-user.php"><i class="fa fa-user"></i> Daftar    User </a>
+                </li>';
+                                    }
+                                    ?>
               </ul>
             </div>
             <div class="menu_section"></div>
