@@ -26,33 +26,40 @@ $username = strtoupper($_SESSION['username']);
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Monitoring | Data Ayam</title>
 
-    <link rel="icon" href="images/dashboard-logo.png" type="image/ico" />
-    <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet" />
-    <!-- iCheck -->
-    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monitoring | Data Ayam</title>
 
-    <!-- bootstrap-progressbar -->
-    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
-    <!-- JQVMap -->
-    <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
-    <!-- bootstrap-daterangepicker -->
-    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+<link rel="icon" href="images/dashboard-logo.png" type="image/ico" />
+<!-- Bootstrap -->
+<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Font Awesome -->
+<link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<!-- NProgress -->
+<link href="vendors/nprogress/nprogress.css" rel="stylesheet" />
+<!-- iCheck -->
+<link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
 
-    <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet" />
+<!-- bootstrap-progressbar -->
+<link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+<!-- JQVMap -->
+<link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+<!-- bootstrap-daterangepicker -->
+<link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+
+<!-- Custom Theme Style -->
+<link href="build/css/custom.min.css" rel="stylesheet" />
+
+<!-- Data table -->
+<link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+<!-- Lightbox -->
+<link href="vendors/dist-lightbox/css/lightbox.min.css" rel="stylesheet" />
+
 </head>
 
 <body class="nav-md">
@@ -143,7 +150,58 @@ $username = strtoupper($_SESSION['username']);
             <!-- page content -->
             <div class="right_col" role="main">
 
-                <h1>Masih kosong (Nunggu kelompok lain)</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Upload Gambar</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <form action="php/img-upload.php" method="post" enctype="multipart/form-data">
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                                    <input type="submit" value="Upload" name="submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Daftar Gambar</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table id="fileTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Gambar</th>
+                                            <th>Nama File</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $dir = 'uploads/'; // Ganti dengan direktori tempat menyimpan file
+                                        $files = scandir($dir);
+                                        $num = 1;
+                                        foreach ($files as $file) {
+                                            if ($file != '.' && $file != '..') {
+                                                echo '<tr>';
+                                                echo '<td>' . $num . '</td>';
+                                                echo '<td><a href="' . $dir . $file . '" data-lightbox="gallery"><img src="' . $dir . $file . '" alt="' . $file . '" width="100"></a></td>';
+                                                echo '<td>' . $file . '</td>';
+                                                echo '</tr>';
+                                                $num++;
+                                            }
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -205,6 +263,17 @@ $username = strtoupper($_SESSION['username']);
 
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
+    <!-- Tambahkan JavaScript untuk DataTables -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#fileTable').DataTable();
+        });
+    </script>
+
+    <!-- JS Lightbox -->
+    <script src="vendors/dist-lightbox/js/lightbox.min.js"></script>
 </body>
 
 </html>
