@@ -147,22 +147,25 @@ $username = strtoupper($_SESSION['username']);
       <!-- page content -->
       <div class="right_col" role="main">
         <section class="about-us py-5">
-          <div class="container">
-            <div class="row">
-              <!-- Kolom untuk gambar -->
-              <div class="col-md-6">
-                <img src="images/anak-ayam.webp" class="img-fluid rounded" alt="Gambar About Us">
-              </div>
-              <!-- Kolom untuk teks -->
-              <div class="col-md-6">
-                <h2>Tentang Kami</h2>
-                <p>
-                  Tuliskan teks atau deskripsi tentang perusahaan atau tim Anda di sini.
-                  Ini adalah contoh teks yang bisa digunakan sebagai pengganti gambar.
-                  Sesuaikan dengan informasi yang ingin Anda tampilkan.
-                </p>
-              </div>
+          <div class="container ">
+            <div class="col-12 text-center">
+              <img src="images/anak-ayam.webp" class="img-fluid rounded w-75 h-auto" alt="Gambar About Us">
+
             </div>
+            <div class="col-md-12 text-center">
+              <h2>Tentang Kami</h2>
+              <p>
+                Tuliskan teks atau deskripsi tentang perusahaan atau tim Anda di sini.
+                Ini adalah contoh teks yang bisa digunakan sebagai pengganti gambar.
+                Sesuaikan dengan informasi yang ingin Anda tampilkan.
+              </p>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <!-- Tempelkan kode iframe Google Maps di sini -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15838.540137600436!2d110.4353347!3d-7.0521006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708c0396ceec97%3A0x10b388f0c8411e72!2sPoliteknik%20Negeri%20Semarang!5e0!3m2!1sen!2sid!4v1691211114905!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
           </div>
         </section>
 
