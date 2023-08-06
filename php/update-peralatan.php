@@ -11,7 +11,7 @@ if (isset($_POST['FAN1_ON']))            // If press ON
 }
 
 if (isset($_POST['FAN1_OFF']))        // If press OFF
-{
+{ 
 
     $sql = "UPDATE data_peralatan SET FAN_1 = 0 WHERE id = 1";
     mysqli_query($conn, $sql);

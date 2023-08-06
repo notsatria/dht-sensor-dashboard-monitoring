@@ -57,6 +57,51 @@ $username = strtoupper($_SESSION['username']);
   <!-- Custom Theme Style -->
   <link href="build/css/custom.min.css" rel="stylesheet" />
 
+  <style>
+    .right_col h2 {
+      font-size: 28px;
+      /* Increase or decrease as needed */
+    }
+
+    .right_col p {
+      font-size: 18px;
+      /* Increase or decrease as needed */
+    }
+
+    .image-overlay {
+      position: relative;
+      display: inline-block;
+    }
+
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      color: white;
+      opacity: 0;
+      /* Tambahkan opacity 0 untuk overlay awal */
+      transition: opacity 0.3s;
+    }
+
+    .image-overlay:hover .overlay {
+      opacity: 1;
+      /* Ubah opacity menjadi 1 saat gambar dihover */
+    }
+
+    .overlay h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+  </style>
+
 </head>
 
 <body class="nav-md">
@@ -149,25 +194,30 @@ $username = strtoupper($_SESSION['username']);
         <section class="about-us py-5">
           <div class="container ">
             <div class="col-12 text-center">
-              <img src="images/anak-ayam.webp" class="img-fluid rounded w-75 h-auto" alt="Gambar About Us">
-
+              <div class="image-overlay">
+                <img src="images/brown-chickens-farm.jpg" class="img-fluid rounded w-75 h-auto" alt="Gambar About Us">
+                <div class="overlay">
+                  <h3>FAJAR FARM</h3>
+                </div>
+              </div>
             </div>
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center py-5">
               <h2>Tentang Kami</h2>
               <p>
-                Tuliskan teks atau deskripsi tentang perusahaan atau tim Anda di sini.
-                Ini adalah contoh teks yang bisa digunakan sebagai pengganti gambar.
-                Sesuaikan dengan informasi yang ingin Anda tampilkan.
+                Peternakan ayam ini memiliki nama fajar farm. Fajar Farm terletak di jalan Cempoko, Gunung Pati, Kota Semarang. Peternakan ayam ini didirikan pada awal tahun 2020 saat pandemi Covid. Fajar Farm memiliki 2 kandang ayam bertingkat dengan luas kandang 12x 60 m. Memiliki jumlah karyawan 2 orang untuk memantau kondisi ayam dan memberi pakan ayam secara berkala. Peternakan ayam ini menernak ayam broiler untuk dikirim di sebuah pt
               </p>
+              <a class="btn-primary p-2 rounded"  href="wa.me/6281215701078" target="_blank">Kontak Kami</a>
             </div>
 
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center ">
               <!-- Tempelkan kode iframe Google Maps di sini -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15838.540137600436!2d110.4353347!3d-7.0521006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708c0396ceec97%3A0x10b388f0c8411e72!2sPoliteknik%20Negeri%20Semarang!5e0!3m2!1sen!2sid!4v1691211114905!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <h2>Alamat Kami</h2>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.5184342964853!2d110.3540098!3d-7.0657261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7089cd59903e5d%3A0x4846373942377537!2sFajar%20Farm!5e0!3m2!1sen!2sid!4v1691309793861!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
           </div>
         </section>
+
 
       </div>
 

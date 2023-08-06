@@ -24,14 +24,14 @@ $tanggal = mysqli_query($conn, "SELECT tanggal FROM data_kandang WHERE id >= '$i
 $fan_1 = mysqli_query($conn, "SELECT FAN_1 FROM data_peralatan WHERE id=1");
 $fan_2 = mysqli_query($conn, "SELECT FAN_2 FROM data_peralatan WHERE id=1");
 $fan_3 = mysqli_query($conn, "SELECT FAN_3 FROM data_peralatan WHERE id=1");
-$cooler = mysqli_query($conn, "SELECT COOLER FROM data_peralatan WHERE id=1");
+$fan_4 = mysqli_query($conn, "SELECT COOLER FROM data_peralatan WHERE id=1");
 $heater = mysqli_query($conn, "SELECT HEATER FROM data_peralatan WHERE id=1");
 $otomatis = mysqli_query($conn, "SELECT OTOMATIS FROM data_peralatan WHERE id=1");
 
 $data_fan1 = mysqli_fetch_array($fan_1);
 $data_fan2 = mysqli_fetch_array($fan_2);
 $data_fan3 = mysqli_fetch_array($fan_3);
-$data_cooler = mysqli_fetch_array($cooler);
+$data_fan4 = mysqli_fetch_array($fan_4);
 $data_heater = mysqli_fetch_array($heater);
 $data_otomatis = mysqli_fetch_array($otomatis);
 ?>
@@ -146,8 +146,8 @@ $data_otomatis = mysqli_fetch_array($otomatis);
                         <div class="row align-items-center">
 
                             <div class="card-body col-7 px-4">
-                                <h4 class="card-title"><strong>COOLER</strong></h4>
-                                <p class="card-text">Status: <?php echo ($data_cooler['COOLER'] == '1') ? "On" : "Off" ?></p>
+                                <h4 class="card-title"><strong>FAN 4</strong></h4>
+                                <p class="card-text">Status: <?php echo ($data_fan4['COOLER'] == '1') ? "On" : "Off" ?></p>
                             </div>
 
 
@@ -155,23 +155,6 @@ $data_otomatis = mysqli_fetch_array($otomatis);
                                 <form action="php/update-peralatan.php" method="POST">
                                     <button type="submit" name="COOLER_ON" class="btn btn-info btn-rounded btn-sm">On</button>
                                     <button type="submit" name="COOLER_OFF" class="btn btn-info btn-rounded btn-sm">Off</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card w-100 my-2">
-                        <div class="row align-items-center">
-
-                            <div class="card-body col-7 px-4">
-                                <h4 class="card-title"><strong>HEATER</strong></h4>
-                                <p class="card-text">Status: <?php echo ($data_heater['HEATER'] == '1') ? "On" : "Off" ?></p>
-                            </div>
-
-
-                            <div class="col-5 px-2">
-                                <form action="php/update-peralatan.php" method="POST">
-                                    <button type="submit" name="HEATER_ON" class="btn btn-info btn-rounded btn-sm">On</button>
-                                    <button type="submit" name="HEATER_OFF" class="btn btn-info btn-rounded btn-sm">Off</button>
                                 </form>
                             </div>
                         </div>
