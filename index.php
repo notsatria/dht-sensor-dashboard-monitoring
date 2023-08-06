@@ -8,6 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="icon" href="images/dashboard-logo.png" type="image/ico" />
 
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <style>
         /* Gaya tambahan untuk carousel */
         .carousel-item {
@@ -59,12 +62,70 @@
             width: 15%;
             margin-top: 20px;
         }
+
+
+        .about-us,
+
+        .address {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #25d366;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+        }
     </style>
 
 </head>
 
 <body>
 
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sistem Monitoring</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutUs">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactUs">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#address">Address</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success" href="login.php">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
     <div class="row">
         <div class="col-12">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -113,8 +174,67 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+
         </div>
     </div>
+
+    <section id="aboutUs" class="about-us py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center pt-5">
+                    <h2>Tentang Kami</h2>
+                </div>
+                <div class="col-md-6 pt-5">
+                    <img src="images/brown-chickens-farm.jpg" class="img-fluid rounded" alt="Gambar Tentang Kami">
+                </div>
+                <div class="col-md-6 p-5">
+                    <p style="line-height: 2.4;">
+                        Peternakan ayam ini memiliki nama fajar farm. Fajar Farm terletak di jalan Cempoko, Gunung Pati,
+                        Kota
+                        Semarang. Peternakan ayam ini didirikan pada awal tahun 2020 saat pandemi Covid. Fajar Farm memiliki
+                        2
+                        kandang ayam bertingkat dengan luas kandang 12x 60 m. Memiliki jumlah karyawan 2 orang untuk memantau
+                        kondisi ayam dan memberi pakan ayam secara berkala. Peternakan ayam ini menernak ayam broiler untuk
+                        dikirim di sebuah pt
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactUs" class="contact-us py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center pt-5">
+                    <h2>Kontak Kami</h2>
+                </div>
+
+                <div class="col-md-12 text-center pt-3">
+                    <a href="https://wa.me/6281215701078" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-whatsapp"></i> Hubungi Kami melalui WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="address" class="address py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center pt-5">
+                    <h2>Alamat Kami</h2>
+                </div>
+
+                <div class="col-md-12 text-center pt-3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.5184342964853!2d110.3540098!3d-7.0657261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7089cd59903e5d%3A0x4846373942377537!2sFajar%20Farm!5e0!3m2!1sen!2sid!4v1691309793861!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script>
