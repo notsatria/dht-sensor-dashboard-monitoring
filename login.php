@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
             // Buat session
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $data['role'];
-            header("location: home.php");
+            header("location: dashboard.php");
             exit();
         } else {
             echo "<script>alert('Username atau Password salah!');</script>";
@@ -103,7 +103,7 @@ if (isset($_POST['login'])) {
 <body>
     <div class="m-5">
         <h1 class=" text-center text-white text-uppercase">Website Monitoring</h1>
-        <h1 class="text-center text-white text-uppercase">Peternakan Ayam ABC</h1>
+        <h1 class="text-center text-white text-uppercase">Peternakan FAJAR FARM</h1>
     </div>
     <div class="container my-auto">
         <div class="card">

@@ -85,9 +85,7 @@ $username = strtoupper($_SESSION['username']);
                         <div class="menu_section">
                             <h3>Menu</h3>
                             <ul class="nav side-menu">
-                                <li>
-                                    <a href="home.php"><i class="fa fa-home"></i> Home </a>
-                                </li>
+
                                 <li>
                                     <a href="dashboard.php"><i class="fa fa-bar-chart-o"></i> Dashboard </a>
                                 </li>

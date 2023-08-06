@@ -84,9 +84,7 @@ $username = strtoupper($_SESSION['username']);
             <div class="menu_section">
               <h3>Menu</h3>
               <ul class="nav side-menu">
-                <li>
-                  <a href="home.php"><i class="fa fa-home"></i> Home </a>
-                </li>
+
                 <li>
                   <a href="dashboard.php"><i class="fa fa-bar-chart-o"></i> Dashboard </a>
                 </li>
@@ -105,14 +103,14 @@ $username = strtoupper($_SESSION['username']);
                 </li>';
                 }
                 ?>
-                 <?php
-                                    // Hanya bisa diakses oleh admin
-                                    if (checkAccess(['admin'])) {
-                                        echo '  <li>
+                <?php
+                // Hanya bisa diakses oleh admin
+                if (checkAccess(['admin'])) {
+                  echo '  <li>
                   <a href="daftar-user.php"><i class="fa fa-user"></i> Daftar    User </a>
                 </li>';
-                                    }
-                                    ?>
+                }
+                ?>
               </ul>
             </div>
             <div class="menu_section"></div>
