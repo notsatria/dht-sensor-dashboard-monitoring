@@ -2,17 +2,18 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ArduinoJson.h>
+#include <WiFiClientSecure.h>
 #include "DHT.h"
 
-WiFiClient wifiClient;
+WiFiClientSecure wifiClient;
 
 const char* ssid = "Apa";
 const char* password = "12345678";
 
 // Inisialisasi variable host
-const char* server = "192.168.191.99";
+const char* server = "dahsboardkandangayam.online";
 
-const int httpPort = 8080;
+const int httpPort = 443;
 
 #define dhtpin D5
 #define dhttype DHT22
@@ -83,12 +84,12 @@ void loop() {
   HTTPClient http;
   Serial.print("[HTTP] begin...\n");
   //IP menuju ke server web
-  String link = "http://" + String(server) + ":" + String(httpPort) + "/dashboard-monitoring/php/kirim-data-kandang.php?suhu=";
+  String link = "https://" + String(server) + ":" + String(httpPort) + "/dashboard-monitoring/php/kirim-data-kandang.php?suhu=";
   link += String(suhu, 3);
   link += "&kelembapan=";
   link += String(kelembapan);
   Serial.printf("Link : %s\n", link.c_str());
-  http.begin(link);
+  http.begin(wifiClient, link);
 
   Serial.print("[HTTP] GET...\n");
   int httpCode = http.GET();

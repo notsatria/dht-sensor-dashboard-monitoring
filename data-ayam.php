@@ -14,7 +14,7 @@ function checkAccess($role)
     if (in_array($_SESSION['role'], $role)) {
         return true;
     } else {
-        false;
+        return false;
     }
 }
 
@@ -55,10 +55,17 @@ $username = strtoupper($_SESSION['username']);
 <link href="build/css/custom.min.css" rel="stylesheet" />
 
 <!-- Data table -->
-<link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet" />
+<!-- <link href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel="stylesheet" /> -->
 
 <!-- Lightbox -->
 <link href="vendors/dist-lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+<style>
+    .fill {
+        min-height: 100%;
+        height: 100%;
+    }
+</style>
 
 </head>
 
@@ -68,7 +75,7 @@ $username = strtoupper($_SESSION['username']);
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0">
-                        <a href="home.php" class="site_title"><span>Sistem Monitoring</span></a>
+                        <a href="dashboard.php" class="site_title" style="font-size: 14pt"><span>Monitoring & Controlling</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -147,78 +154,25 @@ $username = strtoupper($_SESSION['username']);
 
             <!-- page content -->
             <div class="right_col" role="main">
+                <div class="fill">
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Upload Gambar</h2>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <form action="php/img-upload.php" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="fileToUpload" id="fileToUpload">
-                                    <input type="submit" value="Upload" name="submit">
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Daftar Gambar</h2>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <table id="fileTable" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Gambar</th>
-                                            <th>Nama File</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $dir = 'uploads/'; // Ganti dengan direktori tempat menyimpan file
-                                        $files = scandir($dir);
-                                        $num = 1;
-                                        foreach ($files as $file) {
-                                            if ($file != '.' && $file != '..') {
-                                                echo '<tr>';
-                                                echo '<td>' . $num . '</td>';
-                                                echo '<td><a href="' . $dir . $file . '" data-lightbox="gallery"><img src="' . $dir . $file . '" alt="' . $file . '" width="100"></a></td>';
-                                                echo '<td>' . $file . '</td>';
-                                                echo '</tr>';
-                                                $num++;
-                                            }
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-
-
             </div>
-            <br />
+
+
         </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-            <div class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a></div>
-            <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        <br />
     </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right"></div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
     </div>
-
-    <!-- Memanggil data grafik kandang ayam -->
-
 
 
     <!-- jQuery -->

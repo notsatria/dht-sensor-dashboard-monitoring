@@ -63,7 +63,8 @@ $username = strtoupper($_SESSION['username']);
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0">
-            <a href="home.php" class="site_title"><span>Sistem Monitoring</span></a>
+            <a href="dashboard.php" class="site_title" style="font-size: 14pt"><span>Monitoring & Controlling</span></a>
+
           </div>
 
           <div class="clearfix"></div>
@@ -144,11 +145,10 @@ $username = strtoupper($_SESSION['username']);
       <div class="right_col" role="main">
 
         <div class="row" id="grafikKandangAyam">
-
-
-
         </div>
-        <br />
+
+        <div class="col" id="dataAyam">
+        </div>
       </div>
       <!-- /page content -->
 
@@ -168,7 +168,11 @@ $username = strtoupper($_SESSION['username']);
     }, 1000);
   </script>
 
-
+  <script type="text/javascript">
+    var refreshId = setInterval(function() {
+      $("#dataAyam").load("php/data-suhu-ayam.php");
+    }, 1000);
+  </script>
 
   <!-- jQuery -->
   <script src="vendors/jquery/dist/jquery.min.js"></script>

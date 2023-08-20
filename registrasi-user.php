@@ -156,7 +156,7 @@ $username = strtoupper($_SESSION['username']);
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0">
-            <a href="index.html" class="site_title"><span>Sistem Monitoring</span></a>
+            <a href="dashboard.php" class="site_title" style="font-size: 14pt"><span>Monitoring & Controlling</span></a>
           </div>
 
           <div class="clearfix"></div>

@@ -2,9 +2,9 @@
 include "koneksi.php";
 
 // Baca data ID tertinggi dari tabel data_kandang
-    $sql_id = mysqli_query($conn, "SELECT MAX(ID) AS MAX_ID FROM data_kandang");
-    // tangkap nilainya ke dalam variabel
-    $data_id = mysqli_fetch_array($sql_id);
+$sql_id = mysqli_query($conn, "SELECT MAX(ID) AS MAX_ID FROM data_kandang");
+// tangkap nilainya ke dalam variabel
+$data_id = mysqli_fetch_array($sql_id);
 
 $id_akhir = $data_id['MAX_ID'];
 $id_awal = $id_akhir - 4;
@@ -25,7 +25,7 @@ $tanggal = mysqli_query($conn, "SELECT tanggal FROM data_kandang WHERE id >= '$i
     <div class="dashboard_graph">
         <div class="row x_title">
             <div class="col-md-6 mx-auto">
-                <h4>Grafik Data Suhu dan Kelembapan Kandang Ayam</h4>
+                <h4>Data Suhu Ayam dan Suhu Kandang Ayam</h4>
             </div>
 
         </div>

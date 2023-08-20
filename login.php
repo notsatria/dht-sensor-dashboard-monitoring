@@ -4,6 +4,8 @@ require 'php/koneksi.php';
 
 session_start();
 
+$error_message = '';
+
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -22,10 +24,19 @@ if (isset($_POST['login'])) {
             header("location: dashboard.php");
             exit();
         } else {
-            echo "<script>alert('Username atau Password salah!');</script>";
+            // echo "<script>alert('Username atau Password salah!');</script>";
+            //     echo '<div class="alert alert-danger alert-dismissible" role="alert">
+            //     Username atau Password salah!
+            //     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+            //   </div>';
+            $error_message = 'Username atau Password salah!';
         }
     } else {
-        echo "<script>alert('Username tidak ditemukan!');</script>";
+        // echo "<script>alert('Username tidak ditemukan!');</script>";
+        // echo '<div class="alert alert-danger" role="alert">
+        //     Username tidak ditemukan!
+        //   </div>';
+        $error_message = 'Username tidak ditemukan!';
     }
 }
 ?>
@@ -111,6 +122,12 @@ if (isset($_POST['login'])) {
                 <h2>Halaman Login</h2>
             </div>
             <div class="card-body">
+                <?php if ($error_message !== '') : ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <?php echo $error_message; ?>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                    </div>
+                <?php endif; ?>
                 <form method="POST" action="">
                     <div class="form-group">
                         <label for="username">Username:</label>

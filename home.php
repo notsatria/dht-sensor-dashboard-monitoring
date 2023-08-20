@@ -110,7 +110,7 @@ $username = strtoupper($_SESSION['username']);
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0">
-            <a href="home.php" class="site_title"><span>Sistem Monitoring</span></a>
+            <a href="home.php" class="site_title"><span>Sistem Monitoring dan Controlling</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -206,7 +206,7 @@ $username = strtoupper($_SESSION['username']);
               <p>
                 Peternakan ayam ini memiliki nama fajar farm. Fajar Farm terletak di jalan Cempoko, Gunung Pati, Kota Semarang. Peternakan ayam ini didirikan pada awal tahun 2020 saat pandemi Covid. Fajar Farm memiliki 2 kandang ayam bertingkat dengan luas kandang 12x 60 m. Memiliki jumlah karyawan 2 orang untuk memantau kondisi ayam dan memberi pakan ayam secara berkala. Peternakan ayam ini menernak ayam broiler untuk dikirim di sebuah pt
               </p>
-              <a class="btn-primary p-2 rounded"  href="wa.me/6281215701078" target="_blank">Kontak Kami</a>
+              <a class="btn-primary p-2 rounded" href="wa.me/6281215701078" target="_blank">Kontak Kami</a>
             </div>
 
             <div class="col-md-12 text-center ">
