@@ -20,7 +20,6 @@ function checkAccess($role)
 
 $username = strtoupper($_SESSION['username']);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -59,13 +58,6 @@ $username = strtoupper($_SESSION['username']);
 
 <!-- Lightbox -->
 <link href="vendors/dist-lightbox/css/lightbox.min.css" rel="stylesheet" />
-
-<style>
-    .fill {
-        min-height: 100%;
-        height: 100%;
-    }
-</style>
 
 </head>
 
@@ -153,22 +145,55 @@ $username = strtoupper($_SESSION['username']);
             <!-- /top navigation -->
 
             <!-- page content -->
-            <div class="right_col" role="main">
-                <div class="fill">
+            <div class="right_col vh-100" role="main">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Citra AI</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table id="fileTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Gambar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        include 'php/koneksi.php';
 
+                                        $sql = "SELECT * FROM test_gambar";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        $num = 1;
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<tr>';
+                                            echo '<td>' . $num . '</td>';
+                                            echo '<td><a href="uploads/' . $row["images"] . '" data-lightbox="gallery"><img src="uploads/' . $row["images"] . '" alt="' . $row["images"] . '" width="150"></a></td>';
+                                            echo '</tr>';
+                                            $num++;
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
 
         </div>
-        <br />
+
     </div>
     <!-- /page content -->
 
     <!-- footer content -->
     <footer>
-        <div class="pull-right"></div>
+        <div class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a></div>
         <div class="clearfix"></div>
     </footer>
     <!-- /footer content -->
