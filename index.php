@@ -194,8 +194,8 @@
                         Semarang. Peternakan ayam ini didirikan pada awal tahun 2020 saat pandemi Covid. Fajar Farm memiliki
                         2
                         kandang ayam bertingkat dengan luas kandang 12x 60 m. Memiliki jumlah karyawan 2 orang untuk memantau
-                        kondisi ayam dan memberi pakan ayam secara berkala. Peternakan ayam ini menernak ayam broiler untuk
-                        dikirim di sebuah pt
+                        kondisi ayam dan memberi pakan ayam secara berkala. Peternakan ayam fajar farm menernak ayam broiler untuk
+                        dikirim ke pt indofood dan dijual belikan keperorangan.
                     </p>
 
                 </div>
