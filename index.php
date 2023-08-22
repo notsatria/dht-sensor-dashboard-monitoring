@@ -136,7 +136,7 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://img.freepik.com/free-photo/brown-chickens-farm_335224-1154.jpg?w=996&t=st=1688043410~exp=1688044010~hmac=3d93fc0e6e56958b70dafbb56405c87277e6e81c8ac03bbd2a89a45813cf7601" class="d-block w-100" alt="Ayam Makan">
+                        <img src="images/kandang-ayam2.png" class="d-block w-100" alt="Ayam Makan">
                         <div class="overlay"></div>
                         <div class="carousel-caption d-none d-md-block">
                             <h1>Selamat Datang</h1>
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://img.freepik.com/free-photo/brown-hens-farm_335224-1152.jpg?w=996&t=st=1688043436~exp=1688044036~hmac=d1c63fbeb495798c09bee97c90811ec76e9ced91a24fe16d4ae12671ca8832b3" class="d-block w-100" alt="...">
+                        <img src="images/kandang-ayam4.png" class="d-block w-100" alt="...">
                         <div class="overlay"></div>
                         <div class="carousel-caption d-none d-md-block">
                             <h1>Selamat Datang</h1>
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="https://img.freepik.com/free-photo/chicken-nature-with-wooden-house_23-2149647853.jpg?w=996&t=st=1688043556~exp=1688044156~hmac=f213b0f97c4ab74bd15891dc08f6a47768b78ed916b149940d5005d3361c41c7" class="d-block w-100" alt="...">
+                        <img src="images/kandang-ayam3.png" class="d-block w-100" alt="...">
                         <div class="overlay"></div>
                         <div class="carousel-caption d-none d-md-block">
                             <h1>Selamat Datang</h1>
@@ -185,7 +185,7 @@
                     <h2>Tentang Kami</h2>
                 </div>
                 <div class="col-md-6 pt-5">
-                    <img src="images/brown-chickens-farm.jpg" class="img-fluid rounded" alt="Gambar Tentang Kami">
+                    <img src="images/kandang-ayam1.png" class="img-fluid rounded" alt="Gambar Tentang Kami">
                 </div>
                 <div class="col-md-6 p-5">
                     <p style="line-height: 2.4;">
