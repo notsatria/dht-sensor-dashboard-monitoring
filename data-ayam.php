@@ -147,7 +147,7 @@ $username = strtoupper($_SESSION['username']);
             <!-- page content -->
             <div class="right_col vh-100" role="main">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>Citra AI</h2>
@@ -165,14 +165,14 @@ $username = strtoupper($_SESSION['username']);
                                         <?php
                                         include 'php/koneksi.php';
 
-                                        $sql = "SELECT * FROM test_gambar";
+                                        $sql = "SELECT * FROM test_gambar ORDER BY id DESC";
                                         $result = mysqli_query($conn, $sql);
 
                                         $num = 1;
                                         while ($row = $result->fetch_assoc()) {
                                             echo '<tr>';
                                             echo '<td>' . $num . '</td>';
-                                            echo '<td><a href="uploads/' . $row["images"] . '" data-lightbox="gallery"><img src="uploads/' . $row["images"] . '" alt="' . $row["images"] . '" width="150"></a></td>';
+                                            echo '<td><a href="uploads/' . $row["images"] . '" data-lightbox="gallery"><img src="uploads/' . $row["images"] . '" alt="' . $row["images"] . '" width="175"></a></td>';
                                             echo '</tr>';
                                             $num++;
                                         }
@@ -180,6 +180,12 @@ $username = strtoupper($_SESSION['username']);
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div id="dataAyam">
+
                         </div>
                     </div>
                 </div>
@@ -245,8 +251,16 @@ $username = strtoupper($_SESSION['username']);
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#fileTable').DataTable();
+            $('#fileTable').DataTable({
+                pageLength: 3,
+            });
         });
+    </script>
+
+    <script type="text/javascript">
+        var refreshId = setInterval(function() {
+            $("#dataAyam").load("php/data-suhu-ayam-2.php");
+        }, 1000);
     </script>
 
     <!-- JS Lightbox -->
